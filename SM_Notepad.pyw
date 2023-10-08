@@ -14,10 +14,11 @@ class TextEditor:
         self.text_area.pack(fill=tk.BOTH, expand=True)
 
         self.text_area.bind("<MouseWheel>", self.change_font_size)
+        
         # self.text_area = tk.Text(self.root)
         # self.text_area.pack(fill=tk.BOTH, expand=True)
 
-
+        #Files
         self.menu_bar = tk.Menu(self.root)
         self.file_menu = tk.Menu(self.menu_bar, tearoff=0)
         self.file_menu.add_command(label="New", command=self.new_file)
@@ -27,24 +28,43 @@ class TextEditor:
         self.file_menu.add_separator()
         self.file_menu.add_command(label="Exit", command=self.root.quit)
         self.menu_bar.add_cascade(label="File", menu=self.file_menu)
-
+        #Edit
         self.edit_menu = tk.Menu(self.menu_bar, tearoff=0)
         self.edit_menu.add_command(label="Cut", command=self.cut_text)
         self.edit_menu.add_command(label="Copy", command=self.copy_text)
         self.edit_menu.add_command(label="Paste", command=self.paste_text)
         self.menu_bar.add_cascade(label="Edit", menu=self.edit_menu)
-
+        #Font :)
+        self.Font_menu = tk.Menu(self.edit_menu, tearoff=0)
+        self.Font_menu.add_command(label="Consolas", command=self.consolas)
+        self.Font_menu.add_command(label="Candara", command=self.candara)
+        self.Font_menu.add_command(label="Castellar", command=self.castellar)
+        self.Font_menu.add_command(label="Chiller", command=self.chiller)
+        self.Font_menu.add_command(label="Harrington", command=self.harrington)
+        
+        
+        self.menu_bar.add_cascade(label="Fonts", menu=self.Font_menu)
+        #Task (Speak & Read)
         self.voice_menu = tk.Menu(self.edit_menu, tearoff=0)
         self.voice_menu.add_command(label="Speak & Write", command=self.voice_writting)
         self.voice_menu.add_command(label="Read", command=self.read)
         self.menu_bar.add_cascade(label="Task", menu=self.voice_menu)
-
+        #Contact us 
         self.contact_menu = tk.Menu(self.edit_menu, tearoff=0)
         self.contact_menu.add_command(label="Instagram", command=self.Instagram)
         self.menu_bar.add_cascade(label="Contact", menu=self.contact_menu)
 
         self.root.config(menu=self.menu_bar)
-
+    def harrington(self):
+        self.text_area.config(font=("Harrington"))
+    def chiller(self):
+        self.text_area.config(font=("Chiller"))
+    def castellar(self):
+        self.text_area.config(font=("castellar"))
+    def candara(self):
+        self.text_area.config(font=("Candara"))
+    def consolas(self):
+        self.text_area.config(font=("consolas"))
     def change_font_size(self, event):
         current_font = font.Font(font=self.text_area["font"])
         size = current_font.actual()["size"]
