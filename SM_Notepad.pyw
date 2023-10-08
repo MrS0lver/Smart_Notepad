@@ -40,9 +40,7 @@ class TextEditor:
         self.menu_bar.add_cascade(label="Task", menu=self.voice_menu)
 
         self.contact_menu = tk.Menu(self.edit_menu, tearoff=0)
-        self.contact_menu.add_command(label="Twitter", command=self.Twitter)
-        self.contact_menu.add_command(label="GitHub",command=self.GitHub)
-        self.contact_menu.add_command(label="YouTube",command=self.YouTube)
+        self.contact_menu.add_command(label="Instagram", command=self.Instagram)
         self.menu_bar.add_cascade(label="Contact", menu=self.contact_menu)
 
         self.root.config(menu=self.menu_bar)
@@ -57,12 +55,8 @@ class TextEditor:
         if size < 8:
             size = 8
         self.text_area.configure(font=("Arial", size))
-    def YouTube(self):
-        wb.open_new("https://www.youtube.com/channel/UCCjQmgz_crfsdYF2pqdTUew")
-    def Twitter(self):
-        wb.open_new("https://twitter.com/Mrs0lver")
-    def GitHub(self):
-        wb.open_new('https://github.com/MrS0lver')
+    def Instagram(self):
+        wb.open_new("https://instagram.com/babarsaeed.me?igshid=MzRlODBiNWFlZA==")
     def read(self):
         eng = pt.init()
         eng.getProperty('rate')
